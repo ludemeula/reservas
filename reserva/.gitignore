@@ -3,3 +3,5 @@ target/
 target/*
 .project
 .tern-project
+idea/
+idea/*
