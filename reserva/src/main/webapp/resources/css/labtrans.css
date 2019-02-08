@@ -1,0 +1,261 @@
+@CHARSET "UTF-8";
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-size: 13px !important;
+}
+
+/* ------ Classes referente ao Template da aplicação ------ */
+#fullContent {
+	position: relative;
+	min-height: 100%;
+}
+
+/* Content Principal */
+#content {
+	padding-bottom: 360px;
+	clear: both;
+}
+
+.content {
+	padding-top: 3%;
+}
+
+/* ------------- Row ------------------ */
+
+/* Row - col - center */
+/* Row - Padding */
+.row-pd-0 {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+
+/* Row - margin */
+.row-mg-0 {
+	margin-right: 0 !important;
+	margin-left: 0 !important;
+}
+
+.row-mg-1 {
+	margin-top: 1%;
+	margin-bottom: 1%;	
+}
+
+.row-mg-2 {
+	margin-top: 2% !important;
+	margin-bottom: 2% !important;
+}
+
+.row-mg-4 {
+	margin-top: 4% !important;
+	margin-bottom: 4% !important;
+}
+
+.row-mg-6 {
+	margin-top: 20% !important;
+	margin-bottom: 20% !important;
+}
+
+/* ------------- Campos Obrigatórios ------------- */
+.control-validation {
+  margin-top: -15px;
+  display: block;
+}
+
+.required:before {
+	font-size: 12px;
+	content: '* ';
+	color: red;
+}
+
+.validation-invalid {
+	color: red;
+	font-size: 11px;
+ 	font-weight: 700;
+}
+
+
+/* ------------- Botões ------------- */
+.btn {
+	padding: 4px 12px;
+	font-size: 13px;
+}
+
+.table .btn, .table a {
+	padding: 0px;
+	cursor: pointer;
+}
+	.table .btn img {
+		max-width: none;
+	}
+
+/* ------------- Modal ------------- */
+.modal-header {
+	padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    margin: 6% auto;
+  }
+}
+
+/* ------------- Confirm ------------- */
+@media (min-width: 768px) {
+  .confirm-dialog {
+    margin: 15% auto;
+  }
+}
+
+/* ------------- Modal Loader ------------- */
+.loader {
+	display: none;
+}
+
+.loader .modal-backdrop.in {
+	opacity: 0.1;
+}
+
+.loader .modal-dialog {
+  margin: 18% auto;
+}
+
+/* ------------- Message ------------- */
+.message {
+	top: 35px;
+	left: 7.7%;
+	right: 10%;
+	width: 85.7%;
+	z-index: 1050;
+	position: fixed;
+}
+
+.message-content {
+	width: 100%;
+	padding: 10px;
+	display: none;
+	margin-bottom: 15px;
+}
+
+/* ------------- ngTable ------------- */
+.table, .simple-table {
+  width: 100%;
+  font-size: 12px;
+  margin-bottom: 0;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th {
+	padding: 4px 5px;
+	line-height: 15px;
+	text-align: center;
+	vertical-align: middle;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-top: solid 1px #ccc !important;
+	font-weight: 700;
+	font-family: "Arial Negrito", "Arial";
+}
+
+.table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+	padding: 0 5px;
+	vertical-align: middle;
+	border-top-width: 0;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	
+}
+
+.table tr th:first-child, .table tr td:first-child, .table .foot-calc td div:last-child {
+  border-left: 1px solid #ccc;
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>tfoot>tr>td {
+	text-shadow: 0;
+	background-image: -webkit-linear-gradient(top,#fff 0,#e0e0e0 100%);
+	background-image: -o-linear-gradient(top,#fff 0,#e0e0e0 100%);
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#e0e0e0));
+	background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe0e0e0', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	background-repeat: repeat-x;
+	border-color: #ccc;	
+}
+
+.table .foot-calc td {
+	background: none;
+	font-size: 11px;
+	font-weight: 600;
+}
+
+/* ------------- ngTableCheckbox ------------- */
+
+td.ng-table-checkbox {
+	width: 30px;
+	text-align: center;
+}
+
+/* ------------- Pagination ------------- */
+.pagination-control {
+	font-size: 12px;
+	padding-top: 4px;
+	text-align: center;
+}
+
+.pagination-control ul.pagination {
+	margin:  0;
+	padding: 0;
+}
+
+.pagination-control ul.pagination>.active a {
+	color: #337ab7;
+	background : #F8F8F8;
+	border: 1px solid #ccc;
+}
+
+.pagination-control>.pagination>.disabled a, .pagination-control>.pagination>.disabled a:hover, .pagination-control>.pagination>.disabled a:focus {
+	color: #6F6060;
+	background: #D8D8D8;
+	border: 1px solid #ccc;
+}
+
+.pagination-control ul.pagination>li>a {
+	padding: 0;
+	width: 30px;
+	margin: 0 1px;
+	text-decoration: none;
+	border: 1px solid #ccc;
+	
+	background-image: -webkit-linear-gradient(top,#fff 0,#D6D6D6  100%);
+	background-image: -o-linear-gradient(top,#fff 0,#D6D6D6  100%);
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#D6D6D6 ));
+	background-image: linear-gradient(to bottom,#fff 0,#D6D6D6  100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe0e0e0', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.pagination-control .total-register {
+	float: right;
+	font-size: 12px;
+	padding-right: 5px;
+	position: relative;
+	
+	font-weight: 700;
+	font-family: "Arial Negrito", "Arial";
+}
+
+/* ------------- Simple Table ------------- */
+.simple-table {
+	border: 1px solid #E4E4E4;
+}
+	.simple-table tbody tr th {
+		background-color: #165ABF;
+		color: #FFF;
+		font-weight: 700 !important;
+	}
+		.simple-table th, .simple-table td {
+			padding: 5px;
+		}

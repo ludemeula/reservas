@@ -1,0 +1,40 @@
+<div class="table-responsive" data-ng-if="$tableReservas.params.data.length > 0">
+	<table class="table" data-ng-table="$tableReservas.params" data-template-pagination="emptyExternalPagination.html">
+		<tbody>
+			<tr data-ng-repeat="reserva in $data">
+				<td class="col-lg-3 text-center" data-title="'LABEL_LOCAL' | i18n">{{reserva.local.descricao}}</td>
+				<td class="col-lg-2 text-center" data-title="'LABEL_SALA' | i18n">{{reserva.sala.descricao}}</td>
+				<td class="col-lg-1 text-center" data-title="'LABEL_PERIODO' | i18n">
+					{{reserva.dataInicio | date: 'dd/MM/yyyy' : 'UTC' }}
+					<span data-ng-if="reserva.dataFim">
+						{{'LABEL_A' | i18n }}
+						{{reserva.dataFim | date: 'dd/MM/yyyy' : 'UTC' }}
+					</span>
+				</td>
+				<td class="col-lg-3 text-center" data-title="'LABEL_DESCRICAO' | i18n">{{reserva.descricao}}</td>
+				<td class="col-lg-2 text-center" data-title="'LABEL_RESPONSAVEL' | i18n">{{reserva.responsavel}}</td>
+				<td class="col-lg-1 text-center" data-title="'LABEL_ACOES' | i18n">
+					<a class="btn" role="button" data-ng-click="alterar(reserva)" title="{{'LABEL_ALTERAR_RESERVA' | i18n }}">
+						<span class="glyphicon glyphicon-pencil"></span>
+					</a>
+
+					<a class="btn" role="button" data-ng-click="excluir(reserva)" title="{{'LABEL_EXCLUIR_RESERVA' | i18n }}">
+						<span class="glyphicon glyphicon-remove"></span>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+
+		<tfoot>
+			<tr>
+				<td colspan="6"> 
+					<div data-ng-include="'pagination.html'"></div>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+
+<div class="form-group row-mg-2" >
+	<a class="btn btn-primary" data-ng-click="novaReserva();">Nova Reserva</a>
+</div>

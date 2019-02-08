@@ -1,0 +1,133 @@
+<form name="frmReserva" class="form-horizontal">
+	{{reserva.estado}}
+	<div class="form-group">
+		<label for="cmbEstado" class="col-lg-2 control-label required">{{'LABEL_ESTADO' | i18n }}:</label>
+		<div class="col-lg-6">
+			<select id="cmbEstado" name="reserva" data-ng-model="reserva.estado" data-ng-options="estado.descricao for estado in estados track by estado.id"
+				title="{{'LABEL_ESTADO' | i18n }}" class="form-control" data-valid-method="blur" data-validator="required"
+				data-ng-change="carregarCidade()">
+				<option value="">{{'LABEL_SELECIONE' | i18n}}</option>
+			</select>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="cmbCidade" class="col-lg-2 control-label required">{{'LABEL_CIDADE' | i18n }}:</label>
+		<div class="col-lg-6">
+			<select id="cmbCidade" name="cidade" data-ng-model="reserva.cidade" data-ng-options="cidade.descricao for cidade in cidades track by cidade.id"
+				title="{{'LABEL_CIDADE' | i18n }}" class="form-control" data-valid-method="blur" data-validator="required"
+				data-ng-change="carregarLocal()">
+				<option value="">{{'LABEL_SELECIONE' | i18n}}</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="cmbLocal" class="col-lg-2 control-label required">{{'LABEL_LOCAL' | i18n }}:</label>
+		<div class="col-lg-6">
+			<select id="cmbLocal" name="local" data-ng-model="reserva.local" data-ng-options="local.descricao for local in locais track by local.id" title="{{'LABEL_LOCAL' | i18n }}"
+				class="form-control" data-valid-method="blur" data-validator="required" data-ng-change="carregarSala()">
+				<option value="">{{'LABEL_SELECIONE' | i18n}}</option>
+			</select>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="cmbSala" class="col-lg-2 control-label required">{{'LABEL_SALA' | i18n }}:</label>
+		<div class="col-lg-6">
+			<select id="cmbSala" name="sala" data-ng-model="reserva.sala" data-ng-options="sala.descricao for sala in salas track by sala.id"
+				title="{{'LABEL_SALA' | i18n }}" class="form-control" data-valid-method="blur" data-validator="required">
+				<option value="">{{'LABEL_SELECIONE' | i18n}}</option>
+			</select>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="dtInicio" class="col-lg-2 control-label required">{{'LABEL_DATA_INICIO' | i18n}}:</label>
+		<div class="col-lg-2">
+			<div data-ng-calendar>
+				<input id="dtInicio" name="dataInicio" data-ng-date data-ng-model="reserva.dataInicio" title="{{'LABEL_DATA_INICIO' | i18n}}"
+					class="form-control" data-validator="required" data-valid-method="submit" data-message-id="msgDtInicio"/>
+			</div>
+		</div>
+	</div>
+			
+	<div class="row">
+		<span id="msgDtInicio" class="col-lg-3 col-lg-offset-3"></span>
+	</div>
+			
+	<div class="form-group">
+		<label for="dtFim" class="col-lg-2 control-label required">{{'LABEL_DATA_FIM' | i18n}}:</label>
+		<div class="col-lg-2">
+			<div data-ng-calendar>
+				<input id="dtFim" name="dataFim" data-ng-date data-ng-model="reserva.dataFim" title="{{'LABEL_DATA_FIM' | i18n}}" class="form-control"
+					data-validator="required" data-valid-method="submit" data-message-id="msgDtFim"/>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<span id="msgDtFim" class="col-lg-3 col-lg-offset-2"></span>
+	</div>
+	
+	<div class="form-group">
+		<label for="cmbCafe" class="col-lg-2 text-left control-label required">{{ 'LABEL_INCLUIR_CAFE' | i18n}}</label>
+		<div id="cmbCafe" class="col-lg-4">
+			<label class="radio-inline"> 
+				<input type="radio" data-ng-model="reserva.incluirCafe" data-ng-value="false" title="{{'LABEL_INCLUIR_CAFE' | i18n}}"/>{{'LABEL_NAO' | i18n}}
+			</label> 
+			<label class="radio-inline">
+				<input type="radio" data-ng-model="reserva.incluirCafe" data-ng-value="true" title="{{'LABEL_CARGOS_ESPECIFICOS' | i18n}}"/>{{'LABEL_SIM' | i18n}}
+			</label>
+		</div>
+	</div>
+	
+	<div class="form-group" data-ng-if="reserva.incluirCafe">
+		<label for="txtQtdPessoas" class="col-lg-2 text-left control-label">{{ 'LABEL_QTD_PESSOAS' | i18n}}:</label>
+		<div id="txtQtdPessoas" class="col-lg-1">
+			<input id="txtQtdPontos" maxlength="3" 
+				data-ng-model="reserva.quantidadePessoas" data-ng-number title="{{'LABEL_QTD_PESSOAS' | i18n }}" 
+				class="form-control" name="quantidadePessoas" data-validator="required" data-valid-method="blur" data-message-id="msgQtdPessoas"/>
+		</div>
+	</div>
+	
+	<div class="row">
+		<span id="msgQtdPessoas" class="col-lg-3 col-lg-offset-2"></span>
+	</div>
+	
+	<div class="form-group">
+		<label for="txtResponsavel" class="col-lg-2 control-label required">{{'LABEL_RESPONSAVEL' | i18n }}:</label>
+		<div class="col-lg-6">
+			<input id="txtResponsavel" name="responsavel" data-ng-model="reserva.responsavel" title="{{'LABEL_RESPONSAVEL' | i18n }}" data-validator="required"
+				data-valid-method="blur" class="form-control"/>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="txtDescricao" class="col-lg-2 control-label">{{'LABEL_DESCRICAO' | i18n }}:</label>
+		<div class="col-lg-6">
+			<textarea id="txtDescricao" name="descricao" data-ng-model="reserva.descricao" title="{{'LABEL_DESCRICAO' | i18n }}"
+				maxlength="150" class="form-control" rows="3"></textarea>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-lg-2 col-lg-push-2">
+			<a data-ng-click="cancelar()" title="{{ 'LABEL_CANCELAR' | i18n }}" data-ng-if="!acao.isAcaoVisualizar()" class="btn btn-default" >
+				<span class="icon-block"></span>
+			  	<span>{{ 'LABEL_CANCELAR' | i18n }}</span>
+			</a>
+	
+			<a data-ng-click="salvar()" data-validation-submit="frmReserva" data-ng-if="!acao.isAcaoVisualizar()" 
+				title="{{ 'LABEL_SALVAR' | i18n }}" class="btn btn-default">
+			  	<span class="icon-ok"></span> 
+			  	<span>{{ 'LABEL_SALVAR' | i18n }}</span>
+			</a>
+	
+			<a data-ng-click="cancelar()" data-ng-if="acao.isAcaoVisualizar()" title="{{ 'LABEL_VOLTAR' | i18n }}" class="btn btn-default">
+			 	<span class="icon-left"></span>
+			  	<span>{{ 'LABEL_VOLTAR' | i18n }}</span>
+			</a>
+		</div>
+	</div>
+</form>
